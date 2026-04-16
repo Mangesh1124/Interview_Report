@@ -1,0 +1,120 @@
+{
+  "matchScore": 85,
+  "technicalQuestions": [
+    {
+      "question": "Explain the Node.js Event Loop and how it handles non-blocking I/O.",
+      "intention": "To verify the candidate's deep understanding of Node.js core architecture and concurrency model.",
+      "answer": "The Event Loop is the core of Node.js that allows it to perform non-blocking I/O operations despite being single-threaded. It works by offloading operations to the system kernel whenever possible. It consists of several phases: Timers (setTimeout/setInterval), Pending Callbacks, Idle/Prepare, Poll (retrieving new I/O events), Check (setImmediate), and Close Callbacks. Between each phase, Node.js checks the Microtask Queue (process.nextTick and Promises). A key pitfall is performing CPU-intensive tasks on the main thread, which blocks the loop and prevents other requests from being handled."
+    },
+    {
+      "question": "How do you optimize a slow MongoDB aggregation pipeline?",
+      "intention": "To assess the candidate's ability to improve database performance in a production environment.",
+      "answer": "Optimization starts with the 'explain()' method to analyze the execution plan. Key strategies include: filtering early using $match, using $project to limit fields, ensuring indexes are used in $match and $sort, avoiding $unwind on large arrays, and carefully using $lookup. A common pitfall is ignoring the 16MB document limit."
+    },
+    {
+      "question": "What are the different caching strategies you can implement with Redis, and when would you use them?",
+      "intention": "To evaluate knowledge of performance optimization and caching patterns.",
+      "answer": "Common strategies include Cache-Aside, Write-Through, and Write-Behind. Cache-Aside is most common, Write-Through ensures consistency, and Write-Behind offers high performance but risks data loss. A pitfall is cache stampede, mitigated with locking or background updates."
+    },
+    {
+      "question": "How do you secure a Node.js REST API using JWT?",
+      "intention": "To check proficiency in authentication and security best practices.",
+      "answer": "Use HTTPS, strong signing keys, short-lived tokens, refresh tokens in HttpOnly cookies, validate claims, and middleware for verification. Avoid storing sensitive data in JWT payloads."
+    },
+    {
+      "question": "What is the difference between Monolithic and Microservices architecture?",
+      "intention": "To test system design knowledge.",
+      "answer": "Monoliths are single units, easier initially but harder to scale. Microservices are modular and scalable but add complexity. Use Monolith for small apps, Microservices for large systems."
+    },
+    {
+      "question": "How do you handle errors in an Express.js application?",
+      "intention": "To evaluate resilience in coding.",
+      "answer": "Use centralized error handling, async try-catch, global middleware, logging tools, and graceful shutdown for critical failures."
+    },
+    {
+      "question": "Explain Streams in Node.js.",
+      "intention": "To test performance optimization knowledge.",
+      "answer": "Streams process data in chunks instead of loading into memory. Types include Readable, Writable, Duplex, and Transform. Useful for large files."
+    },
+    {
+      "question": "How would you implement rate limiting?",
+      "intention": "To assess API protection knowledge.",
+      "answer": "Use middleware or Redis-based counters. Algorithms include Fixed Window, Sliding Window, and Token Bucket."
+    },
+    {
+      "question": "What are the benefits of Docker?",
+      "intention": "To verify containerization knowledge.",
+      "answer": "Docker ensures consistency, scalability, isolation, and simplifies CI/CD. Use multi-stage builds and .dockerignore."
+    }
+  ],
+  "behavioralQuestions": [
+    {
+      "question": "Tell me about a time you optimized a backend system.",
+      "intention": "Evaluate problem-solving.",
+      "answer": "Optimized API latency from 2s to 200ms using indexing and Redis caching."
+    },
+    {
+      "question": "Describe a technical disagreement.",
+      "intention": "Evaluate collaboration.",
+      "answer": "Resolved DB choice conflict with discussion and compromise using schema validation."
+    },
+    {
+      "question": "Tell me about a difficult bug.",
+      "intention": "Evaluate troubleshooting.",
+      "answer": "Fixed message loss by resolving file descriptor limits and memory leaks."
+    },
+    {
+      "question": "How do you prioritize tasks?",
+      "intention": "Evaluate time management.",
+      "answer": "Used prioritization matrix and delegation to meet deadlines."
+    },
+    {
+      "question": "Learned new technology quickly?",
+      "intention": "Evaluate adaptability.",
+      "answer": "Learned Gemini API in a week and delivered working prototype."
+    }
+  ],
+  "skillGaps": [
+    { "skill": "Message Queues (Kafka, RabbitMQ)", "severity": "high" },
+    { "skill": "Distributed Systems", "severity": "high" },
+    { "skill": "Microservices (Production Experience)", "severity": "medium" },
+    { "skill": "CI/CD Workflows", "severity": "medium" }
+  ],
+  "preparationPlan": [
+    {
+      "day": 1,
+      "focus": "Message Queues",
+      "task": "Study RabbitMQ, Kafka, Pub/Sub and build producer-consumer."
+    },
+    {
+      "day": 2,
+      "focus": "Distributed Systems",
+      "task": "Learn CAP theorem, eventual consistency, Sagas."
+    },
+    {
+      "day": 3,
+      "focus": "Node.js Performance",
+      "task": "Study event loop, worker threads, memory profiling."
+    },
+    {
+      "day": 4,
+      "focus": "Database & Redis",
+      "task": "Practice aggregation and caching strategies."
+    },
+    {
+      "day": 5,
+      "focus": "System Design",
+      "task": "Design scalable chat system."
+    },
+    {
+      "day": 6,
+      "focus": "Behavioral Prep",
+      "task": "Prepare STAR stories."
+    },
+    {
+      "day": 7,
+      "focus": "Mock Interview",
+      "task": "Practice full interview simulation."
+    }
+  ]
+}
